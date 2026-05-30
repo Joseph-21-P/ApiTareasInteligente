@@ -22,7 +22,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.MapGet("/", () => Results.Redirect("/swagger"));
 app.MapControllers();
 app.UseSwagger();
 app.UseSwaggerUI();
