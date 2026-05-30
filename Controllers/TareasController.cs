@@ -18,11 +18,45 @@ namespace ApiTareasInteligente.Controllers
 
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Tarea>>> GetTareas()
+        public async Task<ActionResult<IEnumerable<Tarea>>> GetTareas(
+            [FromQuery] EstadoTarea? estado,
+            [FromQuery] PrioridadTarea? prioridad,
+            [FromQuery] DateTime? fechaInicio,
+            [FromQuery] DateTime? fechaFin)
         {
-            return await _context.Tareas.ToListAsync();
-        }
 
+            if (fechaInicio.HasValue && fechaFin.HasValue && fechaInicio > fechaFin)
+            {
+                return BadRequest("La fecha de inicio no puede ser mayor que la fecha de fin.");
+            }
+
+            var query = _context.Tareas.AsQueryable();
+
+
+            if (estado.HasValue)
+            {
+                query = query.Where(t => t.Estado == estado.Value);
+            }
+
+
+            if (prioridad.HasValue)
+            {
+                query = query.Where(t => t.Prioridad == prioridad.Value);
+            }
+
+
+            if (fechaInicio.HasValue)
+            {
+                query = query.Where(t => t.FechaVencimiento.Date >= fechaInicio.Value.Date);
+            }
+
+            if (fechaFin.HasValue)
+            {
+                query = query.Where(t => t.FechaVencimiento.Date <= fechaFin.Value.Date);
+            }
+
+            return await query.ToListAsync();
+        }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Tarea>> GetTarea(int id)
@@ -45,6 +79,7 @@ namespace ApiTareasInteligente.Controllers
 
             return CreatedAtAction(nameof(GetTarea), new { id = tarea.Id }, tarea);
         }
+
         [HttpPut("{id}")]
         public async Task<IActionResult> PutTarea(int id, Tarea tarea)
         {
