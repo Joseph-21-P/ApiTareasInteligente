@@ -147,3 +147,6 @@ D:\ESPACIO LABORAL\ESTUDIO\PROGRAMACION I\ApiTareasInteligente\obj\Debug\net10.0
 D:\ESPACIO LABORAL\ESTUDIO\PROGRAMACION I\ApiTareasInteligente\obj\Debug\net10.0\ApiTareasInteligente.pdb
 D:\ESPACIO LABORAL\ESTUDIO\PROGRAMACION I\ApiTareasInteligente\obj\Debug\net10.0\ApiTareasInteligente.genruntimeconfig.cache
 D:\ESPACIO LABORAL\ESTUDIO\PROGRAMACION I\ApiTareasInteligente\obj\Debug\net10.0\ref\ApiTareasInteligente.dll
+D:\ESPACIO LABORAL\ESTUDIO\PROGRAMACION I\ApiTareasInteligente\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\ESPACIO LABORAL\ESTUDIO\PROGRAMACION I\ApiTareasInteligente\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\ESPACIO LABORAL\ESTUDIO\PROGRAMACION I\ApiTareasInteligente\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
