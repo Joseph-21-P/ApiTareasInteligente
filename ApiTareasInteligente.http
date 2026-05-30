@@ -1,0 +1,6 @@
+@ApiTareasInteligente_HostAddress = http://localhost:5127
+
+GET {{ApiTareasInteligente_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
